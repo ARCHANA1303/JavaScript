@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function SayHello() {
+            // var name = document.forms[0].elements[0].value
+            // var n1 = document.forms["form1"].elements["txtName"].value
+            var n1 = document.form1.txtName.value
+            
+            alert("hello" +" "+n1);
+            alert("bye"+n1);
+        }
+        function CopyTextFromT1ToT2() {
+            var v1 = document.form1.t1.value;
+            document.form1.t2.value = v1.toUpperCase();
+
+
+        }
+
+        function Calculate() {
+            var n1 = document.form1.txt1.value;
+            var n2 = document.form1.txt2.value;
+            var selInd = document.form1.calculator.selectedIndex
+            var selOp = document.form1.calculator.options[selInd]
+            switch (selOp.value) {
+                case "+":
+                    document.form1.txtResult.value = parseInt(n1) + parseInt(n2);
+                    break;
+                case "-":
+                    document.form1.txtResult.value = n1 - n2;
+                    break;
+                case "*":
+                    document.form1.txtResult.value = n1 * n2;
+                    break;
+                case "/":
+                    document.form1.txtResult.value = n1 / n2;
+                    break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- onclick -->
+    <!-- single statement -->
+    <form action="">
+        <input type="button" name="btnSayHello" value="say hello" onclick="alert('hello')" />
+    </form>
+    <br>
+    <!-- multiple statement -->
+    <form action="">
+        <input type="button" name="btnSayHello" value="say hello" onclick="SayHello()" />
+    </form>
+    <br>
+    <form name="form1" action="">
+        Name: <input type="text" name="txtName" value="" />
+        <input type="button" name="btnSayHello" value="say hello" 
+            onclick='SayHello()' />
+        <input type="text" name="t1" value="" onkeydown="CopyTextFromT1ToT2()">
+        <input type="text" name="t2" value="">
+        <input type="text" name="txt1" value="">
+        <input type="text" name="txt2" value="">
+        <select name="calculator" onchange="Calculate()">
+            <option value="+">Add</option>
+            <option value="-">Sub</option>
+            <option value="*">Mul</option>
+            <option value="/">Div</option>
+        </select>
+        <input type="text" name="txtResult" value="" readonly="readonly">
+    </form>
+    
+    
+
+    
+</body>
+</html>

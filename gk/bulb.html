@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // mouseover
+        // index
+        function SwitchOn() {
+            document.images[0].src = "bulboff.jpg";
+        }
+        function SwitchOff() {
+            document.images[0].src = "bulbon.jpg";
+        }
+        // id
+        function Switch(state) {
+            var img = document.getElementById("img1")
+            if(state == 1) {
+                img.src = "bulboff.jpg";
+            }
+            else
+                img.src = "bulbon.jpg";
+        }
+
+        //  this
+        function Switch1(state,img) {
+            if(state == 1) {
+                img.src = "bulboff.jpg";
+            }
+            else
+                img.src = "bulbon.jpg";
+        }
+        function Initialize() {
+            SwpImage();
+            ShowSystemTime();
+        }
+        function SwpImage() {
+            var img = document.images[0]
+            if (img.src.toLowerCase().indexOf("bulbon.jpg") != -1)
+                img.src = "bulboff.jpg"
+            else
+                img.src = "bulbon.jpg"
+            setTimeout("SwpImage()",1000);
+
+            var img1 = document.images[2]
+            if (img1.src.toLowerCase().indexOf("bulbon.jpg") != -1)
+                img1.src = "bulboff.jpg"
+            else
+                img1.src = "bulbon.jpg"
+            setTimeout("SwpImage1()",1000);
+            var img2 = document.images[1]
+            if (img2.src.toLowerCase().indexOf("bulbon.jpg") != -1)
+                img2.src = "bulboff.jpg"
+            else
+                img2.src = "bulbon.jpg"
+            setTimeout("SwpImage2()",1000);
+        }
+
+        function ShowSystemTime() {
+            document.getElementById("systime").innerHTML = new Date(). toLocaleTimeString();
+            setTimeout("ShowSystemTime()",1000);
+        }
+
+        function ShowMessage() {
+            newin = window.open("form.html","win","menubar=no,scrollbars=no,width=400,height=500,location=no,resizable=no")
+            newin.focus()
+            // setTimeout("newin.close()",5000)
+        }
+    </script>
+</head>
+<body onload="Initialize()">
+    <img src="bulbon.jpg" width="200" height="300" alt="bulb" 
+        onmouseover="SwitchOn()" onmouseout="SwitchOff()">
+    <img id="img1"  src="bulbon.jpg" width="200" height="300" alt="bulb"
+        onmouseover="Switch(1)" onmouseout="Switch(0)">
+    <img  src="bulbon.jpg" width="200" height="300" alt="bulb"
+        onmouseover="Switch1(1,this)" onmouseout="Switch1(0,this)">
+    <div id="systime"></div>
+    <input type="button" name="btnOpenWindow" value="open New Window" onclick="ShowMessage()">
+    
+</body>
+</html>

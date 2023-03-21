@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function canSubmit(){
+            var pwd = document.forms[0].txtPassword.value
+            var cpwd = document.forms[0].txtConfrimPasswaord.value
+            if (pwd == cpwd)
+                return true;
+            else
+                alert("Ensure the password")
+                return false;
+        }
+
+        // function canDelete() {
+        //     return confirm("Are you sure?")
+
+        // }
+
+        function validateMathForm() {
+            var n1 = document.forms[1].txtN1.value
+            var n2 = document.forms[1].txtN2.value
+            if(n1 == "" || n2 == ""){
+                return false;
+            }
+            else
+             return true
+        }
+    </script>
+</head>
+<body>
+    <form action="/" method="post" onsubmit="return canSubmit()">
+        Password:<input type="password" name="txtPassword" value=""><br>
+        Confirm password: <input type="password" name="txtConfrimPasswaord" value=""><br>
+        <input type="submit" name="txtSubmit" value="Submit">
+        <hr>
+        <input type="submit" name="btnDelete" value="Delete" onclick="return confirm('Are you sure?')">
+    </form>
+    <hr>
+    <form action="/" method="post" onsubmit="return validateMathForm()">
+        N1 <input type="text" name="txtN1" value=""><br>
+        N2 <input type="text" name="txtN2" value=""><br>
+        <input type="submit" name="btnAdd" value=" + ">
+        <input type="submit" name="btnSub" value=" - ">
+        <input type="submit" name="btnMul" value=" * ">
+        <input type="submit" name="btnDiv" value=" / ">
+    </form>
+    
+</body>
+</html>

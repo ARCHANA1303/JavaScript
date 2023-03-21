@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+
+        
+
+        
+
+        function ChangeDisplay() {
+            if(document.forms[0].display[0].checked)
+                document.getElementById("spn1").style.display = "";
+            else
+                document.getElementById("spn1").style.display = "none";
+
+
+            if(document.forms[0].chkBold.checked)
+                document.getElementById("spn1").style.fontWeight="bold";
+            else
+                document.getElementById("spn1").style.fontWeight="";
+
+
+        }
+
+    </script>
+</head>
+<body>
+
+    
+    
+    
+    
+    <!-- hide & show -->
+
+    <form action="/" method="post">
+        <input type="radio" name="display" value="Show" checked="checked" onclick="ChangeDisplay()" /> Show
+        <input type="radio" name="display" value="Hide" onclick="ChangeDisplay()" /> Hide
+        <br />
+        <input id="chkBold" type="checkbox" name="chkbold" value="b" onclick="ChangeDisplay()">
+        <label for="chkBold">Bold</label><br>
+        <span id="spn1">This is demo text</span>
+    </form>
+
+
+
+
+
+    
+</body>
+</html>
