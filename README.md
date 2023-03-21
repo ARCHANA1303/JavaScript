@@ -1,2 +1,2 @@
 # JavaScript
- JavaScript preactising codes
+ JavaScript practising codes
